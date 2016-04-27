@@ -589,26 +589,15 @@ public class Estadistica {
         }
         return cal;
     }
-    //End
-    //Start
-    public static double gamma(double x){
-        double ans = 1;
-        while (x > 1){
-            x = x - 1;
-            ans = ans * x;
-        }
-        if (Math.abs(x-1/2)< 1) return ans*Math.sqrt(Math.PI); else return ans;
-    }
-    //End
-    //Start
+    
+    
     public static double f(double x,double dof){
         double cal = 0;
-        cal = Math.pow((1 + x * x / dof), -(dof + 1) / 2) * gamma((dof + 1) / 2);
-        cal = cal / (Math.sqrt(dof * Math.PI) * gamma(dof / 2));
+        cal = Math.pow((1 + x * x / dof), -(dof + 1) / 2) * Gamma.gamma((dof + 1) / 2);
+        cal = cal / (Math.sqrt(dof * Math.PI) * Gamma.gamma(dof / 2));
         return cal;
     }
-    //End
-    //Start
+    
     public static double getTailArea(double r, ArrayList<Double> arrayList){
         double x = Math.abs(r) * Math.sqrt(arrayList.size() - 2) / Math.sqrt(1 - r * r);
         return 1 - 2 * cal(x, arrayList.size() - 2);
@@ -675,42 +664,74 @@ public class Estadistica {
         }
         return x;
     }
-    //End
-    //Start
-    public static double getSigma(ArrayList<Double> xArrayList, ArrayList<Double> yArrayList,double b0, double b1){
+    /**
+     * Metodo que calcula el sigma
+     * @param xArrayList Listado de valores 01
+     * @param yArrayList Listado de valores 02
+     * @param b0 valor beta 00
+     * @param b1 valor beta 01
+     * @return Retorna el Sigma calculado
+     */
+    public static double getSigma(List<Double> xArrayList, List<Double> yArrayList,double b0, double b1){
         ArrayList<Double> cal = new ArrayList<Double>();
         for (int i = 0; i < xArrayList.size(); i++){
             cal.add(yArrayList.get(i) - b0 - b1 * xArrayList.get(i));
         }
         return Math.sqrt(multiple(cal,cal) / (xArrayList.size() - 2));
     }
-    //End
-    //Start
-    public static double getRange(ArrayList<Double> xArrayList, ArrayList<Double> yArrayList,double b0, double b1,double xk){
+    
+    
+    /**
+     * Metodo obtiene el rango
+     * @param xArrayList Listado de valores 01
+     * @param yArrayList Listado de valores 02
+     * @param b0 Valor beta 00
+     * @param b1 Valor beta 01
+     * @param xk Valor xk con el que se realiza la operacion
+     * @return El valor del rango
+     */
+    public static double obtenerRango(List<Double> xArrayList, List<Double> yArrayList,double b0, double b1,double xk){
         double range = getX(0.35, xArrayList.size() - 2) * getSigma(xArrayList, yArrayList, b0, b1);
         ArrayList<Double> cal = new ArrayList<Double>();
         for (int i = 0; i < xArrayList.size(); i++){
-            cal.add(xArrayList.get(i) - getAverage(xArrayList));
+            cal.add(xArrayList.get(i) - calcularMedia(xArrayList));
         }
-        return range * Math.sqrt( 1 + (1.0 / xArrayList.size()) + ((xk - getAverage(xArrayList)) * (xk - getAverage(xArrayList)) / multiple(cal,cal)));
+        return range * Math.sqrt( 1 + (1.0 / xArrayList.size()) + ((xk - calcularMedia(xArrayList)) * (xk - calcularMedia(xArrayList)) / multiple(cal,cal)));
     }
-    //End
-
+    
+    /**
+     * Metodo: Solicitado por el taller 07 de PSP
+     * @param xArrayList Listado de valores 01
+     * @param yArrayList Listado de valores 02
+     * @return Un cadena de texto con todos los valores respectivos
+     */
     public static String calculoPrograma7(ArrayList<Double> xArrayList, ArrayList<Double> yArrayList){
         double xAverage = Estadistica.getAverage(xArrayList);
         double yAverage = Estadistica.getAverage(yArrayList);
+        
+        double xMedia=0;
+        double yMedia =0;
+        double beta01=0;
+        double beta00=0;
+        double r=0;
+        double rango=0;
+        
+        xMedia = Estadistica.calcularMedia(xArrayList);
+        yMedia = Estadistica.calcularMedia(yArrayList);
+ 
+        beta01 = Estadistica.calcularB1(xArrayList, yArrayList);
+        beta00 = Estadistica.calcularB0(xArrayList, yArrayList);
+        
+        calcularR(xArrayList, yArrayList);
+        r = Estadistica.calR(xArrayList,yArrayList);
 
-        double beta1 = Estadistica.calBeta1(xArrayList,yArrayList,xAverage,yAverage);
-        double beta0 = Estadistica.calBeta0(beta1,xAverage,yAverage);
-        double r = Estadistica.calR(xArrayList,yArrayList);
-
-        double x =386; // 247.88;
-        double y = beta0 + beta1 * x;
-        double range = Estadistica.getRange(xArrayList, yArrayList, beta0, beta1, x);
+        double xk =386; // 247.88;
+        double y = beta00 + beta01 * xk;
+        rango = Estadistica.obtenerRango(xArrayList, yArrayList, beta00, beta01, xk);
         double tailArea = Estadistica.getTailArea(r, xArrayList);
 
 
-        String resultado = "r:"+r + ",  r^2:"+ r*r + ",  tailArea:"+ tailArea + ",  beta0:"+beta0 +"  beta1:"+beta1+",  yk:"+y+",  Range:"+range+",  UPI:"+(y+range)+",  LPI:"+(y-range);
+        String resultado = "r:"+r + ",  r^2:"+ r*r + ",  tailArea:"+ tailArea + ",  beta0:"+beta00 +"  beta1:"+beta01+",  yk:"+y+",  Range:"+rango+",  UPI:"+(y+rango)+",  LPI:"+(y-rango);
         return  resultado;
     }
 
