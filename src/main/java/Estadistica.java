@@ -533,46 +533,12 @@ public class Estadistica {
     }
 
 
-    /**
-     * codigo nuevo
-     */
-
-    public static double getAverage(ArrayList<Double> cal){
-        double sumFloat = 0;
-        double averageFloat = 0;
-        for (int i = 0; i < cal.size(); i++){
-            sumFloat += cal.get(i);
-        }
-        averageFloat = sumFloat / cal.size();
-        return averageFloat;
-    }
-    //End
-    //Start
-    public static double calBeta0(double beta1, double xAverage, double yAverage){
-        double cal = yAverage - beta1*xAverage;
-        return cal;
-    }
-    //End
-    //Start
-    public static double calBeta1(ArrayList<Double> xArrayList, ArrayList<Double> yArrayList, double xAverage, double yAverage){
-        double cal = 0;
-        cal = multiple(xArrayList, yArrayList)-(xArrayList.size()*xAverage*yAverage);
-        cal = cal / (multiple(xArrayList, xArrayList) - xArrayList.size()*xAverage*xAverage);
-        return cal;
-    }
-    //End
-    //Start
-    public static double calR(ArrayList<Double> xArrayList, ArrayList<Double> yArrayList){
-        double cal = 0;
-        cal = xArrayList.size()*multiple(xArrayList, yArrayList)-multiple(xArrayList)*multiple(yArrayList);
-        double minus = 0;
-        minus = xArrayList.size()*multiple(xArrayList, xArrayList)-multiple(xArrayList)*multiple(xArrayList);
-        minus *= yArrayList.size()*multiple(yArrayList, yArrayList)-multiple(yArrayList)*multiple(yArrayList);
-        cal = cal / Math.sqrt(minus);
-        return cal;
-    }
-    //End
-    //Start
+   /**
+    * Metodo: Multiplica los valores de las listas
+    * @param xArrayList Listado de valores 01
+    * @param yArrayList Listado de valores 02
+    * @return Valor multilplicado 1 a 1 de las listas
+    */
     public static double multiple(ArrayList<Double> xArrayList, ArrayList<Double> yArrayList){
         double cal = 0;
         for (int i = 0; i < xArrayList.size(); i++){
@@ -580,17 +546,14 @@ public class Estadistica {
         }
         return cal;
     }
-    //End
-    //Start
-    public static double multiple(ArrayList<Double> xArrayList){
-        double cal = 0;
-        for (int i = 0; i < xArrayList.size(); i++){
-            cal += xArrayList.get(i);
-        }
-        return cal;
-    }
     
     
+    /**
+     * Calcula el valor de funcion
+     * @param x valor x
+     * @param dof grados de libertad 
+     * @return valor de f
+     */
     public static double f(double x,double dof){
         double cal = 0;
         cal = Math.pow((1 + x * x / dof), -(dof + 1) / 2) * Gamma.gamma((dof + 1) / 2);
@@ -598,12 +561,23 @@ public class Estadistica {
         return cal;
     }
     
+    /**
+     * Metodo: Calcula el tail area para el ejercicio del taller 07
+     * @param r recibe r
+     * @param arrayList un listado de valores
+     * @return valor del tail area
+     */
     public static double getTailArea(double r, ArrayList<Double> arrayList){
         double x = Math.abs(r) * Math.sqrt(arrayList.size() - 2) / Math.sqrt(1 - r * r);
         return 1 - 2 * cal(x, arrayList.size() - 2);
     }
-    //End
-    //Start
+    
+    /**
+     * Metodo 
+     * @param x
+     * @param dof
+     * @return 
+     */
     public static double cal(double x,double dof){
         int num_seg = 10;
         final double E = 0.00001;
@@ -625,8 +599,12 @@ public class Estadistica {
         }while(Math.abs(answer_old - answer_new) > E);
         return answer_new;
     }
-    //End
-    //Start
+    /**
+     * Metodo obtiene el valor de X a partir del p y dof en una sola funcion 
+     * @param p valor p
+     * @param dof grados de libertad
+     * @return valor de X
+     */
     public static double getX(double p,double dof){
         double x = 1.0;
         double d = 0.5;
@@ -664,6 +642,7 @@ public class Estadistica {
         }
         return x;
     }
+    
     /**
      * Metodo que calcula el sigma
      * @param xArrayList Listado de valores 01
@@ -706,8 +685,6 @@ public class Estadistica {
      * @return Un cadena de texto con todos los valores respectivos
      */
     public static String calculoPrograma7(ArrayList<Double> xArrayList, ArrayList<Double> yArrayList){
-        double xAverage = Estadistica.getAverage(xArrayList);
-        double yAverage = Estadistica.getAverage(yArrayList);
         
         double xMedia=0;
         double yMedia =0;
@@ -723,7 +700,7 @@ public class Estadistica {
         beta00 = Estadistica.calcularB0(xArrayList, yArrayList);
         
         calcularR(xArrayList, yArrayList);
-        r = Estadistica.calR(xArrayList,yArrayList);
+        r = Estadistica.calcularR(xArrayList,yArrayList);
 
         double xk =386; // 247.88;
         double y = beta00 + beta01 * xk;
