@@ -12,7 +12,7 @@ th, td {
 </style>
 </head>
 <body>
-<h2> Taller #7 </h2>
+<h2> Taller PSP7  </h2>
 
 <h4>Test1 </h4>
 ${test1?html?replace(',', '<br>')}

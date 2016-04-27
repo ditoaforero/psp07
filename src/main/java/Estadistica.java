@@ -708,7 +708,7 @@ public class Estadistica {
         double tailArea = Estadistica.getTailArea(r, xArrayList);
 
 
-        String resultado = "r:"+r + ",  r^2:"+ r*r + ",  tailArea:"+ tailArea + ",  beta0:"+beta00 +"  beta1:"+beta01+",  yk:"+y+",  Range:"+rango+",  UPI:"+(y+rango)+",  LPI:"+(y-rango);
+        String resultado = "r: "+r + ",  r^2: "+ r*r + ",  tailArea: "+ tailArea + ",  beta0: "+beta00 +",  beta1: "+beta01+",  yk: "+y+",  Range: "+rango+",  UPI:"+(y+rango)+",  LPI:"+(y-rango);
         return  resultado;
     }
 
