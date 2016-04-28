@@ -1,4 +1,24 @@
 -------------------------------------------------------------------------------
 Test set: EstadisticaTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 sec
+Tests run: 8, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.26 sec <<< FAILURE!
+test1CalculoPrograma7(EstadisticaTest)  Time elapsed: 0.13 sec  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<...r^2: 0.9110637099775758,tailArea: 1.7751922070985415E-5,beta0: -22.55253275203438,beta1: 1.7279324262069864,yk: 644.4293837638623,Range: 230.00172610114413,UPI: ...> but was:<...  r^2: 0.9110637099775758,  tailArea: 1.7751922070985415E-5,  beta0: -22.552532752034267,  beta1: 1.727932426206986,  yk: 644.4293837638623,  Range: 230.00172610114413,  UPI:...>
+	at junit.framework.Assert.assertEquals(Assert.java:81)
+	at junit.framework.Assert.assertEquals(Assert.java:87)
+	at EstadisticaTest.test1CalculoPrograma7(EstadisticaTest.java:89)
+test2CalculoPrograma7(EstadisticaTest)  Time elapsed: 0.04 sec  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<...r^2: 0.871061766116737,tailArea: 7.982103462012002E-5,beta0: -4.038881574687579,beta1: 0.168126649881629,yk: 60.858005279621224,Range: 27.557648239487744,UPI: 88.41565351910897,  LPI:33.30035704013348> but was:<...  r^2: 0.871061766116737,  tailArea: 7.982103462012002E-5,  beta0: -4.038881574687551,  beta1: 0.16812664988162895,  yk: 60.858005279621224,  Range: 27.557648239487733,  UPI:88.41565351910896,  LPI:33.30035704013349>
+	at junit.framework.Assert.assertEquals(Assert.java:81)
+	at junit.framework.Assert.assertEquals(Assert.java:87)
+	at EstadisticaTest.test2CalculoPrograma7(EstadisticaTest.java:98)
+test3CalculoPrograma7(EstadisticaTest)  Time elapsed: 0.02 sec  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<...r^2: 0.02405976745686793,tailArea: 0.8448878873299417,beta0: 349.1135217292316,beta1: -1.2738207085849105,yk: -142.58127178454384,Range: 2395.1418579493975,UPI: ...> but was:<...  r^2: 0.02405976745686793,  tailArea: 0.8448878873299417,  beta0: 349.1135217292316,  beta1: -1.2738207085849105,  yk: -142.58127178454384,  Range: 2395.1418579493975,  UPI:...>
+	at junit.framework.Assert.assertEquals(Assert.java:81)
+	at junit.framework.Assert.assertEquals(Assert.java:87)
+	at EstadisticaTest.test3CalculoPrograma7(EstadisticaTest.java:107)
+test4CalculoPrograma7(EstadisticaTest)  Time elapsed: 0.01 sec  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<...r^2: 0.5072325791615665,tailArea: 0.28779740107826557,beta0: 1.4125661432497258,beta1: 0.04356796778051751,yk: 18.229801706529486,Range: 12.677737745846745,UPI: ...> but was:<...  r^2: 0.5072325791615665,  tailArea: 0.28779740107826535,  beta0: 1.4125661432497258,  beta1: 0.04356796778051751,  yk: 18.229801706529486,  Range: 12.677737745846745,  UPI:...>
+	at junit.framework.Assert.assertEquals(Assert.java:81)
+	at junit.framework.Assert.assertEquals(Assert.java:87)
+	at EstadisticaTest.test4CalculoPrograma7(EstadisticaTest.java:116)

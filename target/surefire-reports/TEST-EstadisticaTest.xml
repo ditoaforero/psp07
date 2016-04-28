@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="EstadisticaTest" time="0.062" errors="0" skipped="0">
+<testsuite tests="8" failures="4" name="EstadisticaTest" time="0.263" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_71\jre\bin"/>
     <property name="java.vm.version" value="25.71-b15"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\PSP07\psp07"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -27,7 +26,8 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\apache-maven-3.3.9\bin\..\bin\m2.conf"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.1\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.1\java\maven\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_71\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\apache-maven-3.3.9\bin;C:\Program Files (x86)\Heroku\bin;C:\Program Files (x86)\git\cmd;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -40,11 +40,11 @@
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="Cp1252"/>
     <property name="user.name" value="Dito"/>
-    <property name="java.class.path" value="C:\apache-maven-3.3.9\bin\..\boot\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.class.path" value="C:\Program Files\NetBeans 8.1\java\maven\boot\plexus-classworlds-2.4.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_71\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.1\java\maven-nblib\netbeans-eventspy.jar test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="es"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -52,19 +52,53 @@
     <property name="java.version" value="1.8.0_71"/>
     <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_71\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_71\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_71\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_71\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_71\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_71\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_71\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_71\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_71\jre\classes"/>
-    <property name="sun.stderr.encoding" value="cp850"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="maven.home" value="C:\apache-maven-3.3.9\bin\.."/>
+    <property name="maven.home" value="C:\Program Files\NetBeans 8.1\java\maven"/>
     <property name="file.separator" value="\"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="sun.stdout.encoding" value="cp850"/>
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="EstadisticaTest" name="testCalcularXDistribucionT" time="0.062"/>
-  <testcase classname="EstadisticaTest" name="testCalcularFxPrimeraParte" time="0"/>
   <testcase classname="EstadisticaTest" name="testCalcularFxSegundaParte" time="0"/>
+  <testcase classname="EstadisticaTest" name="test1CalculoPrograma7" time="0.13">
+    <failure message="expected:&lt;...r^2: 0.9110637099775758,tailArea: 1.7751922070985415E-5,beta0: -22.55253275203438,beta1: 1.7279324262069864,yk: 644.4293837638623,Range: 230.00172610114413,UPI: ...&gt; but was:&lt;...  r^2: 0.9110637099775758,  tailArea: 1.7751922070985415E-5,  beta0: -22.552532752034267,  beta1: 1.727932426206986,  yk: 644.4293837638623,  Range: 230.00172610114413,  UPI:...&gt;" type="junit.framework.ComparisonFailure">junit.framework.ComparisonFailure: expected:&lt;...r^2: 0.9110637099775758,tailArea: 1.7751922070985415E-5,beta0: -22.55253275203438,beta1: 1.7279324262069864,yk: 644.4293837638623,Range: 230.00172610114413,UPI: ...&gt; but was:&lt;...  r^2: 0.9110637099775758,  tailArea: 1.7751922070985415E-5,  beta0: -22.552532752034267,  beta1: 1.727932426206986,  yk: 644.4293837638623,  Range: 230.00172610114413,  UPI:...&gt;
+	at junit.framework.Assert.assertEquals(Assert.java:81)
+	at junit.framework.Assert.assertEquals(Assert.java:87)
+	at EstadisticaTest.test1CalculoPrograma7(EstadisticaTest.java:89)
+</failure>
+    <system-out>test1 CalculoPrograma7
+</system-out>
+  </testcase>
+  <testcase classname="EstadisticaTest" name="testCalcularXDistribucionT" time="0.03"/>
+  <testcase classname="EstadisticaTest" name="testCalcularFxPrimeraParte" time="0.01"/>
+  <testcase classname="EstadisticaTest" name="test2CalculoPrograma7" time="0.04">
+    <failure message="expected:&lt;...r^2: 0.871061766116737,tailArea: 7.982103462012002E-5,beta0: -4.038881574687579,beta1: 0.168126649881629,yk: 60.858005279621224,Range: 27.557648239487744,UPI: 88.41565351910897,  LPI:33.30035704013348&gt; but was:&lt;...  r^2: 0.871061766116737,  tailArea: 7.982103462012002E-5,  beta0: -4.038881574687551,  beta1: 0.16812664988162895,  yk: 60.858005279621224,  Range: 27.557648239487733,  UPI:88.41565351910896,  LPI:33.30035704013349&gt;" type="junit.framework.ComparisonFailure">junit.framework.ComparisonFailure: expected:&lt;...r^2: 0.871061766116737,tailArea: 7.982103462012002E-5,beta0: -4.038881574687579,beta1: 0.168126649881629,yk: 60.858005279621224,Range: 27.557648239487744,UPI: 88.41565351910897,  LPI:33.30035704013348&gt; but was:&lt;...  r^2: 0.871061766116737,  tailArea: 7.982103462012002E-5,  beta0: -4.038881574687551,  beta1: 0.16812664988162895,  yk: 60.858005279621224,  Range: 27.557648239487733,  UPI:88.41565351910896,  LPI:33.30035704013349&gt;
+	at junit.framework.Assert.assertEquals(Assert.java:81)
+	at junit.framework.Assert.assertEquals(Assert.java:87)
+	at EstadisticaTest.test2CalculoPrograma7(EstadisticaTest.java:98)
+</failure>
+    <system-out>test2 CalculoPrograma7
+</system-out>
+  </testcase>
+  <testcase classname="EstadisticaTest" name="test3CalculoPrograma7" time="0.02">
+    <failure message="expected:&lt;...r^2: 0.02405976745686793,tailArea: 0.8448878873299417,beta0: 349.1135217292316,beta1: -1.2738207085849105,yk: -142.58127178454384,Range: 2395.1418579493975,UPI: ...&gt; but was:&lt;...  r^2: 0.02405976745686793,  tailArea: 0.8448878873299417,  beta0: 349.1135217292316,  beta1: -1.2738207085849105,  yk: -142.58127178454384,  Range: 2395.1418579493975,  UPI:...&gt;" type="junit.framework.ComparisonFailure">junit.framework.ComparisonFailure: expected:&lt;...r^2: 0.02405976745686793,tailArea: 0.8448878873299417,beta0: 349.1135217292316,beta1: -1.2738207085849105,yk: -142.58127178454384,Range: 2395.1418579493975,UPI: ...&gt; but was:&lt;...  r^2: 0.02405976745686793,  tailArea: 0.8448878873299417,  beta0: 349.1135217292316,  beta1: -1.2738207085849105,  yk: -142.58127178454384,  Range: 2395.1418579493975,  UPI:...&gt;
+	at junit.framework.Assert.assertEquals(Assert.java:81)
+	at junit.framework.Assert.assertEquals(Assert.java:87)
+	at EstadisticaTest.test3CalculoPrograma7(EstadisticaTest.java:107)
+</failure>
+    <system-out>test3 CalculoPrograma7
+</system-out>
+  </testcase>
+  <testcase classname="EstadisticaTest" name="test4CalculoPrograma7" time="0.01">
+    <failure message="expected:&lt;...r^2: 0.5072325791615665,tailArea: 0.28779740107826557,beta0: 1.4125661432497258,beta1: 0.04356796778051751,yk: 18.229801706529486,Range: 12.677737745846745,UPI: ...&gt; but was:&lt;...  r^2: 0.5072325791615665,  tailArea: 0.28779740107826535,  beta0: 1.4125661432497258,  beta1: 0.04356796778051751,  yk: 18.229801706529486,  Range: 12.677737745846745,  UPI:...&gt;" type="junit.framework.ComparisonFailure">junit.framework.ComparisonFailure: expected:&lt;...r^2: 0.5072325791615665,tailArea: 0.28779740107826557,beta0: 1.4125661432497258,beta1: 0.04356796778051751,yk: 18.229801706529486,Range: 12.677737745846745,UPI: ...&gt; but was:&lt;...  r^2: 0.5072325791615665,  tailArea: 0.28779740107826535,  beta0: 1.4125661432497258,  beta1: 0.04356796778051751,  yk: 18.229801706529486,  Range: 12.677737745846745,  UPI:...&gt;
+	at junit.framework.Assert.assertEquals(Assert.java:81)
+	at junit.framework.Assert.assertEquals(Assert.java:87)
+	at EstadisticaTest.test4CalculoPrograma7(EstadisticaTest.java:116)
+</failure>
+    <system-out>test4 CalculoPrograma7
+</system-out>
+  </testcase>
   <testcase classname="EstadisticaTest" name="testSumatoria" time="0"/>
 </testsuite>
