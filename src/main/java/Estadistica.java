@@ -14,7 +14,7 @@ import org.apache.commons.math3.special.Gamma;
  * Esta clase se utiliza para realizar las operaciones matematicas y
  * estadisticas
  *
- * @author Lili
+ * @author Eduardo
  */
 public class Estadistica {
 
@@ -567,7 +567,7 @@ public class Estadistica {
      * @param arrayList un listado de valores
      * @return valor del tail area
      */
-    public static double getTailArea(double r, ArrayList<Double> arrayList){
+    public static double getTailArea(double r, List<Double> arrayList){
         double x = Math.abs(r) * Math.sqrt(arrayList.size() - 2) / Math.sqrt(1 - r * r);
         return 1 - 2 * cal(x, arrayList.size() - 2);
     }
@@ -684,25 +684,19 @@ public class Estadistica {
      * @param yArrayList Listado de valores 02
      * @return Un cadena de texto con todos los valores respectivos
      */
-    public static String calculoPrograma7(ArrayList<Double> xArrayList, ArrayList<Double> yArrayList){
+    public static String calculoPrograma7(List<Double> xArrayList, List<Double> yArrayList, double xk){
         
-        double xMedia=0;
-        double yMedia =0;
         double beta01=0;
         double beta00=0;
         double r=0;
         double rango=0;
         
-        xMedia = Estadistica.calcularMedia(xArrayList);
-        yMedia = Estadistica.calcularMedia(yArrayList);
- 
         beta01 = Estadistica.calcularB1(xArrayList, yArrayList);
         beta00 = Estadistica.calcularB0(xArrayList, yArrayList);
         
         calcularR(xArrayList, yArrayList);
         r = Estadistica.calcularR(xArrayList,yArrayList);
 
-        double xk =386; // 247.88;
         double y = beta00 + beta01 * xk;
         rango = Estadistica.obtenerRango(xArrayList, yArrayList, beta00, beta01, xk);
         double tailArea = Estadistica.getTailArea(r, xArrayList);
