@@ -38,8 +38,8 @@ public class Main {
             ArrayList<Double> xArrayList = new ArrayList<Double>(EstimatedProxySize);
             ArrayList<Double> yArrayList = new ArrayList<Double>(ActualAddedandModifiedSize);
 
-            String resultadoTest1= Estadistica.calculoPrograma7(EstimatedProxySize,ActualAddedandModifiedSize);
-            String resultadoTest2= Estadistica.calculoPrograma7(EstimatedProxySize,ActualDevelopmentHours);
+            String resultadoTest1= Estadistica.calculoPrograma7(EstimatedProxySize,ActualAddedandModifiedSize, 386);
+            String resultadoTest2= Estadistica.calculoPrograma7(EstimatedProxySize,ActualDevelopmentHours, 386);
             //String resultadoTest3= Estadistica.calculoPrograma7(EstimatedProxySize,ActualAddedandModifiedSize);
             //String resultadoTest4= Estadistica.calculoPrograma7(EstimatedProxySize,ActualDevelopmentHours);
 
